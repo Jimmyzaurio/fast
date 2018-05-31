@@ -1,2 +1,2 @@
-# fast
-gogogogog
+# server
+Debian Jessie
