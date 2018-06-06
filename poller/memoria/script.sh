@@ -9,34 +9,18 @@ function escribe_log()
     echo "`date '+%m/%d %H:%M:%S'` $IP" >> $log
 }
 
-DIREC[0]="localhost"
-DIREC[1]="192.168.1.84"
-
-#DIREC[0]="192.168.232."
-#DIREC[1]="192.168.232."
-#DIREC[2]="192.168.232."
+DIREC[0]="192.168.205.15"
 
 for IP in "${DIREC[@]}"
 do
     salida_get=`snmpget -v 2c -c public $IP hrStorageUsed.1`
     retval=$?
 
-    if [ $retval -eq 0 ] # obtuvimos algunas respuestas
+    if [ $retval -eq 0 ] # se ejecutó correctamente 
     then
         ans=`echo $get | grep -o 'INTEGER: [0-9]\+'`
         arr=($ans)
         mem_usada=${arr[1]}
-
-        recvd=`echo $salida_ping | grep -o '[0-9]\+ received'`
-        recvd=${recvd% received}
-        lost=`expr 20 - $recvd`
-    elif [ $retval -eq 1 ] # no hubo respuesta
-    then
-        mem_usada='U'
-    elif [ $retval -eq 2 ] # el host no se encontró 
-    then
-        escribe_log "host desconocido $IP"
-        exit $retval
     else # otros
         escribe_log "error pinging $IP error : $retval"
         exit $retval
@@ -54,6 +38,7 @@ do
         if [ $retval -gt 0 ]
         then
             escribe_log "no se pudo crear el archivo rrd para la ip $IP, error: $retval"
+            swaks -t redes.bolillo@gmail.com -s smtp.gmail.com:587 -tls -a -au redes.bolillo@gmail.com -ap redes.bolillo@gmail.com --header "Subject: Error snmpget $IP" --body "No se pudo recibir la informacion de snmpget, revisar estado del router $IP"
             exit 200
         fi
     fi
@@ -68,17 +53,6 @@ do
         escribe_log "rrd update para $IP falló error : $retval"
         exit 201
     fi
-
-
-  #sudo ping $IP -c 1
-  packet_loss=$(sudo ping -c 1 -q $IP | grep -oP '\d+(?=% packet loss)')
-  echo "$IP % de perdida: $packet_loss"
-
-  # SWAKS to admin mail 
-  if [ "$packet_loss" -ge 40 ]; then
-    swaks -f jsp.saucedo@gmail.com -t jsp.saucedo@gmail.com
-    echo -e "\tEnviando email de ALERTA"
-  fi
 
 done
 
