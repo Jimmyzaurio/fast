@@ -9,8 +9,8 @@ function escribe_log()
     echo "`date '+%m/%d %H:%M:%S'` $IP" >> $log
 }
 
-DIREC[0]="localhost"
-DIREC[1]="192.168.1.84"
+DIREC[0]="192.168.205.15"
+#DIREC[1]="192.168.1.84"
 
 #DIREC[0]="192.168.232."
 #DIREC[1]="192.168.232."
