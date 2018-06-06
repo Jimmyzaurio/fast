@@ -1,0 +1,2 @@
+HOST-RESOURCES-MIB::hrStorageDescr.1 = STRING: Physical memory
+HOST-RESOURCES-MIB::hrStorageUsed.1 = INTEGER: 78436
