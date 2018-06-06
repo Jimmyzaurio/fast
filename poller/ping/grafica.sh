@@ -1,7 +1,7 @@
 #!/bin/bash
 
-base_dir='/home/cyberbae/Documents/server/poller/ping'
-graph_dir='/home/cyberbae/Documents/server/poller/ping'
+base_dir='/root/server/poller/ping'
+graph_dir='/root/server/poller/ping'
 log="$base_dir/log/sping.log"
 
 function write_log()

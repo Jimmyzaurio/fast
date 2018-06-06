@@ -1,7 +1,7 @@
 #!/bin/bash
 
-base_dir='/home/cyberbae/Documents/server/poller/ping'
-graph_dir='/home/cyberbae/Documents/server/poller/ping'
+base_dir='/root/server/poller/ping'
+graph_dir='/root/server/poller/ping'
 log="$base_dir/log/sping.log"
 
 function escribe_log()
@@ -10,7 +10,7 @@ function escribe_log()
 }
 
 DIREC[0]="localhost"
-DIREC[1]="192.168.1.84"
+#DIREC[1]="192.168.1.84"
 
 #DIREC[0]="192.168.232."
 #DIREC[1]="192.168.232."
@@ -86,16 +86,6 @@ do
         exit 201
     fi
 
-
-  #sudo ping $IP -c 1
-  packet_loss=$(sudo ping -c 1 -q $IP | grep -oP '\d+(?=% packet loss)')
-  echo "$IP % de perdida: $packet_loss"
-
-  # SWAKS to admin mail 
-  if [ "$packet_loss" -ge 40 ]; then
-    swaks -f jsp.saucedo@gmail.com -t jsp.saucedo@gmail.com
-    echo -e "\tEnviando email de ALERTA"
-  fi
 
 done
 

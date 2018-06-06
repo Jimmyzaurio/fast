@@ -1,7 +1,10 @@
 #!/bin/bash
 
-raiz='/home/cyberbae/Documents/server/poller/memoria'
-graph_dir='/home/cyberbae/Documents/server/poller/memoria'
+#raiz='/home/cyberbae/Documents/server/poller/memoria'
+#graph_dir='/home/cyberbae/Documents/server/poller/memoria'
+
+raiz='/root/server/poller/memoria'
+graph_dir='/root/server/server/poller/memoria'
 log="$raiz/log/sping.log"
 
 function escribe_log()
@@ -18,10 +21,13 @@ do
 
     if [ $retval -eq 0 ] # se ejecutó correctamente 
     then
-        ans=`echo $get | grep -o 'INTEGER: [0-9]\+'`
+        echo "funciono"
+        ans=`echo $salida_get | grep -o 'INTEGER: [0-9]\+'`
         arr=($ans)
         mem_usada=${arr[1]}
+        echo $mem_usada
     else # otros
+        echo "no funciono"
         escribe_log "error pinging $IP error : $retval"
         exit $retval
     fi
@@ -30,7 +36,7 @@ do
     then
         rrdtool create $raiz/rrd/$IP.rrd \
         --step 60 \
-        DS:memoria_usada:COUNTER:120:0:20 \
+        DS:mem_usada:GAUGE:120:0:20 \
         RRA:MAX:0.5:1:525600
 
         retval=$?
