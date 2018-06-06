@@ -25,7 +25,7 @@ router ospf
   network 192.168.203.0/24 area 0
   network 192.168.232.4/30 area 0
   network 192.168.232.8/30 area 0
-  network 192.168.204.0/24 area 0
+  network 192.168.205.0/24 area 0
 !
 interface loopback lo
   ip address 127.0.0.1/8
@@ -52,7 +52,7 @@ interface ethernet eth3
   no shutdown
 !
 interface ethernet eth4
-  ip address 192.168.204.15/24
+  ip address 192.168.205.15/24
   ip mtu 1500
   no shutdown
 !

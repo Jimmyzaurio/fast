@@ -7,6 +7,11 @@ service ftp
 administrator rcp encrypted password PVPQBKMD$Ocp4wdHhCR30RQ9CsPOmE.
 !
 !
+snmp-server contact jesus3
+snmp-server location zacatenco
+snmp-server community public ro
+snmp-server enable traps
+snmp-server host 192.168.205.15 traps version 2c public
 !
 !
 router rip
@@ -20,7 +25,7 @@ router ospf
   network 192.168.203.0/24 area 0
   network 192.168.232.4/30 area 0
   network 192.168.232.8/30 area 0
-  network 192.168.204.0/24 area 0
+  network 192.168.205.0/24 area 0
 !
 interface loopback lo
   ip address 127.0.0.1/8
@@ -29,7 +34,7 @@ interface loopback lo
 interface ethernet eth0
   ip address 192.168.203.15/24
   ip mtu 1500
-  no shutdown
+  shutdown
 !
 interface ethernet eth1
   ip address 192.168.232.6/30
@@ -47,19 +52,11 @@ interface ethernet eth3
   no shutdown
 !
 interface ethernet eth4
-  ip address 192.168.204.15/24
+  ip address 192.168.205.15/24
   ip mtu 1500
   no shutdown
 !
 interface ethernet eth5
-  ip mtu 1500
-  shutdown
-!
-interface ethernet eth6
-  ip mtu 1500
-  shutdown
-!
-interface ethernet eth7
   ip mtu 1500
   shutdown
 !

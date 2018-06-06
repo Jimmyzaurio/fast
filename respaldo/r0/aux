@@ -1,36 +1,41 @@
 hostname rcp
 !
 service telnet
-service http encrypted password VUFJJJAB$a584372e756f6673607ce99ee447a2c9
+service http encrypted password XWQPIBOO$0a5a5b5e7654c5ee337df5877924b354
 service ftp
 !
-administrator rcp encrypted password LWFKJDVN$TAVuhtBUGY4.XorvYvw9e.
+administrator rcp encrypted password IMAXTRFN$/HvJ.lWfBKHY9X0XL5q7f1
 !
 !
+snmp-server contact jesus1
+snmp-server location ticoman
+snmp-server community public ro
+snmp-server enable traps
+snmp-server host 192.168.205.15 traps version 2c public
 !
 !
 router ospf
-  router-id 192.168.232.9
-  network 192.168.202.0/24 area 0
+  router-id 192.168.232.5
   network 192.168.232.0/30 area 0
-  network 192.168.232.8/30 area 0
+  network 192.168.232.4/30 area 0
+  network 192.168.201.0/24 area 0
 !
 interface loopback lo
   ip address 127.0.0.1/8
   ip mtu 16436
 !
 interface ethernet eth0
-  ip address 192.168.202.15/24
+  ip address 192.168.201.15/24
   ip mtu 1500
   no shutdown
 !
 interface ethernet eth1
-  ip address 192.168.232.2/30
+  ip address 192.168.232.1/30
   ip mtu 1500
-  no shutdown
+  shutdown
 !
 interface ethernet eth2
-  ip address 192.168.232.9/30
+  ip address 192.168.232.5/30
   ip mtu 1500
   no shutdown
 !
@@ -39,18 +44,11 @@ interface ethernet eth3
   shutdown
 !
 interface ethernet eth4
+  ip address 192.168.204.15/24
   ip mtu 1500
   shutdown
 !
 interface ethernet eth5
-  ip mtu 1500
-  shutdown
-!
-interface ethernet eth6
-  ip mtu 1500
-  shutdown
-!
-interface ethernet eth7
   ip mtu 1500
   shutdown
 !

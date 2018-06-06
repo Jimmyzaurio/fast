@@ -3,12 +3,12 @@
 USER="rcp"
 PASSWD="rcp"
 
-DIR="/root/respaldo/r"
+DIR="/root/server/respaldo/r"
 FILE="startup-config"
 
 ROUTER_IP[0]="192.168.232.5"
 ROUTER_IP[1]="192.168.232.9"
-ROUTER_IP[2]="192.168.204.15"
+ROUTER_IP[2]="192.168.205.15"
 
 lee() {
 

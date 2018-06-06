@@ -1,7 +1,7 @@
 #!/bin/bash
 
 base_dir='/root/server/poller/ping'
-graph_dir='/root/server/poller/ping'
+graph_dir='/root/server/poller/ping/plot'
 log="$base_dir/log/sping.log"
 
 function write_log()
