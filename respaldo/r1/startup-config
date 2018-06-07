@@ -41,7 +41,6 @@ interface ethernet eth2
   no shutdown
 !
 interface ethernet eth3
-  ip address 192.168.205.15/24
   ip mtu 1500
   no shutdown
 !

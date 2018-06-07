@@ -44,7 +44,6 @@ interface ethernet eth3
   shutdown
 !
 interface ethernet eth4
-  ip address 192.168.204.15/24
   ip mtu 1500
   shutdown
 !
