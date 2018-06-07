@@ -1,7 +1,6 @@
 #!/bin/bash
 
 raiz='/root/server/poller/memoria'
-graph_dir='/root/server/server/poller/memoria'
 log="$raiz/log/sping.log"
 
 function escribe_log()
@@ -56,5 +55,4 @@ do
     fi
 
 done
-
 

@@ -3,7 +3,7 @@
 USER="rcp"
 PASSWD="rcp"
 
-DIR="/root/server/inventario/r"
+DIR="/root/server/poller/inventario/r"
 FILE="specs"
 
 ROUTER_IP[0]="192.168.232.5"

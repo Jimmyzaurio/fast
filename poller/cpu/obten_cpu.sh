@@ -1,7 +1,6 @@
 #!/bin/bash
 
 raiz='/root/server/poller/cpu'
-graph_dir='/root/server/server/poller/cpu'
 log="$raiz/log/sping.log"
 
 function escribe_log()
@@ -31,7 +30,7 @@ do
     then
         rrdtool create $raiz/rrd/$IP.rrd \
         --step 60 \
-        DS:mem_usada:GAUGE:120:0:20 \
+        DS:cpu_usado:GAUGE:120:0:20 \
         RRA:MAX:0.5:1:100
 
         retval=$?

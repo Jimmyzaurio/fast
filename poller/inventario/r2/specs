@@ -1,0 +1,49 @@
+BIOS Information
+	Vendor: innotek GmbH
+	Version: VirtualBox
+	Release Date: 12/01/2006
+	Address: 0xE0000
+	Runtime Size: 128 kB
+	ROM Size: 128 kB
+	Characteristics:
+		ISA is supported
+		PCI is supported
+		Boot from CD is supported
+		Selectable boot is supported
+		8042 keyboard services are supported (int 9h)
+		CGA/mono video services are supported (int 10h)
+		ACPI is supported
+
+System Information
+	Manufacturer: innotek GmbH
+	Product Name: VirtualBox
+	Version: 1.2
+	Serial Number: 0
+	UUID: F8E01374-428A-4B69-9827-C38B54F29C05
+	Wake-up Type: Power Switch
+	SKU Number: Not Specified
+	Family: Virtual Machine
+
+Base Board Information
+	Manufacturer: Oracle Corporation
+	Product Name: VirtualBox
+	Version: 1.2
+	Serial Number: 0
+	Asset Tag: Not Specified
+	Features:
+		Board is a hosting board
+	Location In Chassis: Not Specified
+	Type: Motherboard
+
+Chassis Information
+	Manufacturer: Oracle Corporation
+	Type: Other
+	Lock: Not Present
+	Version: Not Specified
+	Serial Number: Not Specified
+	Asset Tag: Not Specified
+	Boot-up State: Safe
+	Power Supply State: Safe
+	Thermal State: Safe
+	Security Status: None
+

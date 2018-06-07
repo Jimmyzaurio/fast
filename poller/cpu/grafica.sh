@@ -1,7 +1,7 @@
 #!/bin/bash
 
 raiz='/root/server/poller/cpu'
-graph_dir='/root/server/poller/cpu'
+graph_dir='/root/server/poller/cpu/plot'
 log="$raiz/log/sping.log"
 
 function write_log()
