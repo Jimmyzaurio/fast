@@ -22,20 +22,20 @@ function write_log()
         --start -14400 --end now \
         --font DEFAULT:8: \
         --title "Memoria disponible en el router $host" \
-        --vertical-label "Latency (MS)" \
+        --vertical-label "Latencia (MS)" \
         --lower-limit 0 \
         --alt-y-grid --rigid \
         DEF:mem_usada=$file:mem_usada:MAX \
-		COMMENT:"Updated `date '+%m/%d %H\:%M'`   " \
+		COMMENT:"Actualizado `date '+%m/%d %H\:%M'`   " \
         LINE1:mem_usada#03bd10:"Memoria"
 
         retval=$?
 
         if [ $retval -gt 0 ]
         then
-            write_log "error generating graph for $host retval $retval"
+            write_log "error generando la grafica para $host error: $retval"
         fi
     done
 
-    write_log 'graph generation complete'
+    write_log 'grafica generada exitosamente'
 
