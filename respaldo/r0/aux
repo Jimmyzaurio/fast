@@ -32,7 +32,7 @@ interface ethernet eth0
 interface ethernet eth1
   ip address 192.168.232.1/30
   ip mtu 1500
-  shutdown
+  no shutdown
 !
 interface ethernet eth2
   ip address 192.168.232.5/30

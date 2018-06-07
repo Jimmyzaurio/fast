@@ -8,7 +8,9 @@ function escribe_log()
     echo "`date '+%m/%d %H:%M:%S'` $IP" >> $log
 }
 
-DIREC[0]="192.168.205.15"
+DIREC[0]="192.168.232.5"
+DIREC[1]="192.168.232.9"
+DIREC[2]="192.168.205.15"
 
 for IP in "${DIREC[@]}"
 do
@@ -23,7 +25,7 @@ do
         #echo $mem_usada
     else # otros
         escribe_log "error pinging $IP error : $retval"
-        exit $retval
+        continue
     fi
 
     if [ ! -f $raiz/rrd/$IP.rrd ] # crear rrd si no existe
@@ -39,7 +41,7 @@ do
         then
             escribe_log "no se pudo crear el archivo rrd para la ip $IP, error: $retval"
             swaks -t redes.bolillo@gmail.com -s smtp.gmail.com:587 -tls -a -au redes.bolillo@gmail.com -ap redes.bolillo@gmail.com --header "Subject: Error snmpget $IP" --body "No se pudo recibir la informacion de snmpget, revisar estado del router $IP"
-            exit 200
+            continue
         fi
     fi
 
@@ -51,7 +53,7 @@ do
     if [ $retval -gt 0 ]
     then
         escribe_log "rrd update para $IP falló error : $retval"
-        exit 201
+        continue
     fi
 
 done

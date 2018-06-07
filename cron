@@ -1,0 +1,5 @@
+  * *  *   *   *     /root/server/poller/cpu/obten_cpu.sh > /dev/null 2>&1
+  * *  *   *   *     /root/server/poller/memoria/obten_memoria.sh > /dev/null 2>&1
+  * *  *   *   *     /root/server/poller/ping/obten_ping.sh > /dev/null 2>&1
+  * *  *   *   *     /root/server/respaldo/audita.sh > /dev/null 2>&1
+
